@@ -1,0 +1,33 @@
+`include "RAM_memory.v"
+`include "Demux1a2_class.v"
+`include "fifo_vc0.v"
+`include "fifo_vc1.v"
+
+module clasificacion#(parameter DATA_SIZE=10)(
+
+input clk,
+input reset_L,
+input [9:0] datain_class,
+output [DATA_SIZE-1:0] data_mux_0,	// From vc0 of fifo_vc0.v
+output [DATA_SIZE-1:0] data_mux_1,	// From vc1 of fifo_vc1.v
+	input [DATA_SIZE-1:0] 	afVC_o,
+	input [DATA_SIZE-1:0] 	aeVC_o,
+	input [9:0] 	data_vc0,	
+	input 		push_vc0
+/*AUTOARG*/);
+	
+	wire [9:0] 	outclass0;
+	wire [9:0] 	outclass1;
+	wire		fifo_empty_vc0;		// From vc0 of fifo_vc0.v
+	wire		fifo_empty_vc1;		// From vc1 of fifo_vc1.v
+	wire		fifo_error_vc0;		// From vc0 of fifo_vc0.v
+	wire		fifo_error_vc1;		// From vc1 of fifo_vc1.v
+	wire		fifo_pause_vc0;		// From vc0 of fifo_vc0.v
+	wire		fifo_pause_vc1;		// From vc1 of fifo_vc1.v
+
+
+
+
+		        
+        
+endmodule
