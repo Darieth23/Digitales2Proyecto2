@@ -1,0 +1,39 @@
+`include "RAM_memory.v"
+`include "Mux2a1_dest.v"
+`include "output_flow.v"
+`include "demux_d.v"
+`include "Demux1a2_classV2.v"
+`include "fifo_vc0.v"
+`include "fifo_vc1.v"
+`include "fifo_d0.v"
+`include "fifo_d1.v"
+module clasificacion#(parameter DATA_SIZE=10)(
+
+input clk,
+input reset_L,
+input dest,
+input class,
+input [7:0] datain_class,
+output [DATA_SIZE-1:0] dataout_dest,	// From mux
+output validoutdest,	// From mux
+	input [DATA_SIZE-1:0] 	afVC_o,
+	input [DATA_SIZE-1:0] 	aeVC_o,	
+
+	input [DATA_SIZE-1:0] 	afD_o,
+	input [DATA_SIZE-1:0] 	aeD_o,	
+	input 		push_d0,
+	input 		pop_d0,
+	input 		push_d1,
+	input 		pop_d1
+/*AUTOARG*/);
+	
+clasificacion autoinstClasi(/*AUTOINST*/
+			    // Inputs
+			    .clk		(clk),
+			    .reset_L		(reset_L),
+			    .dest		(dest));
+
+
+
+
+endmodule
