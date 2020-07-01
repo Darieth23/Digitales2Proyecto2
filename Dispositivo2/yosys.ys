@@ -1,0 +1,16 @@
+
+read_verilog serialtopar1.v
+
+hierarchy -check -top \serialtopar
+
+proc; opt; fsm; opt; memory; opt
+
+techmap; opt
+
+dfflibmap -liberty cmos_cells.lib
+
+abc -liberty cmos_cells.lib
+
+clean
+
+write_verilog serialtopar1Est.v
